@@ -28,6 +28,7 @@ async function run() {
     await client.connect();
 
     const coffeeCollection = client.db("coffeeDB").collection("coffee");
+    
     app.get("/coffee", async(req, res) => {
         const cursor = coffeeCollection.find();
         const result = await cursor.toArray();
