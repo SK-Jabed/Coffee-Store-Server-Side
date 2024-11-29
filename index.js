@@ -78,10 +78,23 @@ async function run() {
     })
 
     // Users Related API
+    app.get("/users", async (req, res) => {
+      const cursor = userCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
     app.post("/users", async (req, res) => {
       const newUser = req.body;
       console.log("Creating new user", newUser);
       const result = await userCollection.insertOne(newUser);
+      res.send(result);
+    })
+
+    app.delete("/users/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id)  };
+      const result = await userCollection.deleteOne(query);
       res.send(result);
     })
 
