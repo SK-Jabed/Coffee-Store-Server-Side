@@ -129,5 +129,5 @@ app.get("/", (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Coffee Store Server is Running on port: ${port}`);
+    console.log(`Coffee Store Server is Running on Port: ${port}`);
 })
