@@ -83,6 +83,7 @@ async function run() {
       res.send(result);
     });
 
+    // Post USers and User Data to Database
     app.post("/users", async (req, res) => {
       const newUser = req.body;
       console.log("Creating new user", newUser);
@@ -90,6 +91,7 @@ async function run() {
       res.send(result);
     });
 
+    // Update Users Data by PATCH Operation
     app.patch("/users", async (req, res) => {
       const email = req.body.email;
       const filter = { email };
